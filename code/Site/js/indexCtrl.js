@@ -21,7 +21,6 @@ class IndexCtrl {
     alert(msg);
   }
 
-
   loadJeux() {
     this.vue.chargerVue("jeux", function() {
       new JeuxCtrl();
@@ -29,10 +28,10 @@ class IndexCtrl {
   }
 
   loadDetails() {
-    this.vue.chargerVue("login", () =>  new DetailsCtrl());
+    this.vue.chargerVue("details", () =>  new DetailsCtrl());
   }
 
   loadCarte() {
-    this.vue.chargerVue("compte", () =>  new CarteCtrl());
+    this.vue.chargerVue("carte", () =>  new CarteCtrl());
   }
 }
