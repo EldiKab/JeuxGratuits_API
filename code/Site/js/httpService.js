@@ -51,40 +51,8 @@ class HttpService {
       success: successCallBack,
     });
   }
-  getJeuxFiltre(genre, plateforme, developper, successCallBack){
-    if(genre!=null && plateforme!=null && developper!=null){
-      $.ajax({
-        url: "https://www.freetogame.com/api/games?category=" + genre + "&platform="+plateforme + "&developer="+developper,
-        type: "GET",
-        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-        success: successCallBack,
-      });
-    }
-    if(genre==null && plateforme!=null && developper!=null){
-      $.ajax({
-        url: "https://www.freetogame.com/api/games?platform="+plateforme + "&developer="+developper,
-        type: "GET",
-        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-        success: successCallBack,
-      });
-    }
-    if(genre!=null && plateforme==null && developper!=null){
-      $.ajax({
-        url: "https://www.freetogame.com/api/games?category=" + genre  + "&developer="+developper,
-        type: "GET",
-        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-        success: successCallBack,
-      });
-    }
-    if(genre!=null && plateforme!=null && developper!=null){
-      $.ajax({
-        url: "https://www.freetogame.com/api/games?category=" + genre + "&platform="+plateforme + "&developer="+developper,
-        type: "GET",
-        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-        success: successCallBack,
-      });
-    }
-    if(genre!=null && plateforme!=null && developper==null){
+  getJeuxFiltre(genre, plateforme, successCallBack){
+    if(genre!=null && plateforme!=null){
       $.ajax({
         url: "https://www.freetogame.com/api/games?category=" + genre + "&platform="+plateforme,
         type: "GET",
@@ -92,15 +60,7 @@ class HttpService {
         success: successCallBack,
       });
     }
-    if(genre!=null && plateforme==null && developper==null){
-      $.ajax({
-        url: "https://www.freetogame.com/api/games?category=" + genre,
-        type: "GET",
-        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-        success: successCallBack,
-      });
-    }
-    if(genre==null && plateforme!=null && developper==null){
+    if(genre==null && plateforme!=null){
       $.ajax({
         url: "https://www.freetogame.com/api/games?platform="+plateforme,
         type: "GET",
@@ -108,15 +68,15 @@ class HttpService {
         success: successCallBack,
       });
     }
-    if(genre==null && plateforme==null && developper!=null){
+    if(genre!=null && plateforme==null){
       $.ajax({
-        url: "https://www.freetogame.com/api/games?developer="+developper,
+        url: "https://www.freetogame.com/api/games?category=" + genre,
         type: "GET",
         contentType: "application/x-www-form-urlencoded; charset=UTF-8",
         success: successCallBack,
       });
     }
-    if(genre==null && plateforme==null && developper==null){
+    if(genre==null && plateforme==null){
       this.getAllJeux;
     }
   }

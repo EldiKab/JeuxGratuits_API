@@ -20,7 +20,7 @@ class IndexCtrl {
   afficherErreurHttp(msg) {
     alert(msg);
   }
-
+  
   loadJeux() {
     this.vue.chargerVue("jeux", function() {
       new JeuxCtrl();
