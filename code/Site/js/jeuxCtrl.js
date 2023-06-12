@@ -7,9 +7,9 @@ class JeuxCtrl {
       this.afficherJeux(data);
     });
     $("#buttonNomJeu").click(function(){
-      filtreNomJeu()});
+      this.filtreNomJeu()});
     $("#buttonFiltreJeu").click(function(){
-      filtreJeu()});
+      this.filtreJeu()});
   }
   listeDeroulanteGenre(jeux) {
     let liste = document.getElementById("cmboxGenre");
