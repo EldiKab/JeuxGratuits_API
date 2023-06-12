@@ -4,9 +4,12 @@ class JeuxCtrl {
       this.listeDeroulanteDeveloppeurs(data);
       this.listeDeroulanteGenre(data);
       this.listeDeroulantePlateforme(data);
+      this.afficherJeux(data);
     });
-    $("#buttonNomJeu").click(filtreNomJeu());
-    $("#buttonFiltreJeu").click(filtreJeu());
+    $("#buttonNomJeu").click(function(){
+      filtreNomJeu()});
+    $("#buttonFiltreJeu").click(function(){
+      filtreJeu()});
   }
   listeDeroulanteGenre(jeux) {
     let liste = document.getElementById("cmboxGenre");
@@ -51,14 +54,35 @@ class JeuxCtrl {
       liste.appendChild(opt);
     }
   }
+  afficherJeux(jeux){
+    let conteneur = document.getElementById("jeux");
+    for(let i = 0; i<jeux.length; i++){
+      let jeu = document.createElement("div");
+      let image = document.createElement("img");
+      image.src=jeux[i].thumbnail;
+      let titre = document.createElement("p");
+      titre.innerHTML = jeux[i].title;
+      let table = document.createElement("table");
+      let tbody = document.createElement("tbody");
+      let tr = document.createElement("tr");
+      let genretd = document.createElement("td");
+      genretd.innerHTML= jeux[i].genre;
+      let plateformetd = document.createElement("td");
+      plateformetd.innerHTML=jeux[i].platform;
+      tr.appendChild(genretd);
+      tr.appendChild(plateformetd);
+      tbody.appendChild(tr);
+      table.appendChild(tbody);
+      jeu.appendChild(image);
+      jeu.appendChild(titre);
+      jeu.appendChild(table);
+    }
+  }
   filtreJeu(){
     let genre = document.getElementById("cmboxGenre").value
     let plateforme = document.getElementById("cmboxPlateforme").value
     let developpeurs = document.getElementById("cmboxDeveloppeurs").value
     let jeux = http.getJeuxFiltre(genre, plateforme, developpeurs);
-    let conteneur = document.getElementById("jeux");
-    for(let i = 0; i<jeux.length; i++){
-      
-    }
+    this.afficherJeux(jeux);
   }
 }
