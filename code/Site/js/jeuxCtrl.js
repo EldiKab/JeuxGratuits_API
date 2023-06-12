@@ -67,6 +67,10 @@ class JeuxCtrl {
       jeu.appendChild(image);
       jeu.appendChild(titre);
       jeu.appendChild(table);
+      jeu.id="jeu" + i;
+      jeu.addEventListener('click', function() {
+        indexCtrl.loadDetails(jeux[i].id);
+      });
       conteneur.appendChild(jeu);
     }
   }

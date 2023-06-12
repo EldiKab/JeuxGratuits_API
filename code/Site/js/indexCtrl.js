@@ -27,8 +27,8 @@ class IndexCtrl {
     });
   }
 
-  loadDetails() {
-    this.vue.chargerVue("details", () =>  new DetailsCtrl());
+  loadDetails(id) {
+    this.vue.chargerVue("details", () =>  new DetailsCtrl(id));
   }
 
   loadCarte() {

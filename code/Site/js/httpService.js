@@ -51,6 +51,14 @@ class HttpService {
       success: successCallBack,
     });
   }
+  getJeuAvecId(id, successCallBack){
+    $.ajax({
+      url: "https://www.freetogame.com/api/game?id=" + id,
+      type: "GET",
+      contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+      success: successCallBack,
+    });
+  }
   getJeuxFiltre(genre, plateforme, successCallBack){
     if(genre!=null && plateforme!=null){
       $.ajax({
