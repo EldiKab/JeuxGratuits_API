@@ -14,7 +14,6 @@ class DetailsCtrl {
         $("#developpeursJeu").text(jeu.developer);
         $("#datesortieJeu").text(jeu.release_date);
         $("<img src='" + jeu.thumbnail+"'</img>").appendTo("#imageJeu");
-        
     });
   }
 }
