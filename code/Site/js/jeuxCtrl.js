@@ -2,8 +2,8 @@ class JeuxCtrl {
   constructor() {
     http.getAllJeux((data) => {
       this.afficherJeux(data);
-      //this.listeDeroulanteGenre(data);
-      //this.listeDeroulantePlateforme(data);
+      this.listeDeroulanteGenre(data);
+      this.listeDeroulantePlateforme(data);
     });
     $("#buttonNomJeu").click(() => {
       this.filtreNomJeu();
@@ -17,7 +17,7 @@ class JeuxCtrl {
   }
   listeDeroulanteGenre(jeux) {
     let liste = document.getElementById("cmboxGenre");
-    let genres;
+    let genres=[];
     for (let i = 0; i < jeux.length; i++) {
       genres.push(jeux[i].genre);
     }
@@ -31,7 +31,7 @@ class JeuxCtrl {
   }
   listeDeroulantePlateforme(jeux) {
     let liste = document.getElementById("cmboxPlateforme");
-    let plateformes;
+    let plateformes=[];
     for (let i = 0; i < jeux.length; i++) {
       plateformes.push(jeux[i].platform);
     }
@@ -101,8 +101,8 @@ class JeuxCtrl {
     conteneur.appendChild(jeuDiv);
   }
   filtreJeu() {
-    let genre = document.getElementById("cmboxGenre").value;
-    let plateforme = document.getElementById("cmboxPlateforme").value;
+    let genre = $("#cmboxGenre option:selected").text();
+    let plateforme = $("#cmboxPlateforme option:selected").text();
     http.getJeuxFiltre(genre, plateforme, (jeux) => {
       this.afficherJeux(jeux);
     });
