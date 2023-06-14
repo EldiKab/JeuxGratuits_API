@@ -56,9 +56,12 @@ class JeuxCtrl {
       let table = document.createElement("table");
       let tbody = document.createElement("tbody");
       let tr = document.createElement("tr");
+      tr.classList.add("trInfosJeu");
       let genretd = document.createElement("td");
+      genretd.classList.add("genretd");
       genretd.innerHTML = jeux[i].genre;
       let plateformetd = document.createElement("td");
+      plateformetd.classList.add("plateformetd");
       plateformetd.innerHTML = jeux[i].platform;
       tr.appendChild(genretd);
       tr.appendChild(plateformetd);
@@ -67,6 +70,7 @@ class JeuxCtrl {
       jeu.appendChild(image);
       jeu.appendChild(titre);
       jeu.appendChild(table);
+      jeu.classList.add("jeu");
       jeu.addEventListener("click", function () {
         indexCtrl.loadDetails(jeux[i].id);
       });
@@ -95,6 +99,7 @@ class JeuxCtrl {
     jeuDiv.appendChild(image);
     jeuDiv.appendChild(titre);
     jeuDiv.appendChild(table);
+    jeuDiv.classList.add("jeu");
     jeuDiv.addEventListener("click", function () {
       indexCtrl.loadDetails(jeu.id);
     });

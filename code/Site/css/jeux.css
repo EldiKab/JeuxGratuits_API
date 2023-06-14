@@ -1,0 +1,37 @@
+header div{
+  display: flex;
+  height: fit-content;
+  align-items: center;
+}
+header div > *{
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.jeu{
+  border: solid 2px;
+  border-color: black;
+  margin: 3px;
+  border-radius: 10px;
+  background-color: #002244;
+}
+.jeu img{
+  height: 195px;
+  margin: 10px;
+  margin-bottom: 0px;
+}
+#jeux{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+.trInfosJeu{
+  display: flex;
+  justify-content: space-between;
+}
+.genretd{
+  text-align: left;
+}
+.plateformetd{
+  text-align: right;
+}
+ 

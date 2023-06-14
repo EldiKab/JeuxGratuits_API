@@ -1,71 +1,36 @@
 /*
-  But :     
-  Auteur : prénom + nom
-  Date :   jj.mm.aaaa / V1.0
+  But :    Css principale de mon projet 
+  Auteur : Eldi Kabashi
+  Date :   14.06.2023 / V1.0
 */
-body {
-  background-color: grey;
+
+header{
+  display: flex;
+  justify-content: space-between;
+  background-color: #002244;
+  align-items: center;
+  border-bottom: solid;
+  margin-bottom: 10px;
+  
 }
-
-#container {
-  background-color: white;
-  width: 90%;
-  padding: 1em;
-  border: 1px solid black;
-  margin: auto;
-  font-family: Verdana, Arial, serif;
+footer{
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin-top: 10px;
+  background-color: #002244;
+  border-top: solid;
 }
-
-/* pour aligner les champs du formulaire */
-.user-form {
-  /*  padding: 0em;*/
+footer > *{
+  margin: 10px;
 }
-
-.user-form .field {
-  padding: 0.5em;
-  background: #eeeeee;
+body{
+  background-color: #00416A;
 }
-
-.user-form .field label {
-  display: inline-block;
-  width: 10em;
-}
-
-.user-form .field input,radio {
-  display: inline-block;
-}
-
-#langue {
-  display: inline-block;
-}
-
-
-.but-valider {
-    font-size: 1em;
-    width: 7em;
-    border-radius: 1em;
-    background-color: greenyellow;
-    margin-top: 15px;
-}
-
-.but-invalider {
-  font-size: 1em;
-  width: 7em;
-  border-radius: 1em;
-  background-color: red;
-  margin-top: 15px;
+div{
   color: white;
 }
 
-/* .user-form input[type=button] {
-  font-size: 1em;
-  width: 7em;
-  border-radius: 1em;
-  background-color: greenyellow;
-  margin-top: 15px;
-} */
-
-#creer {
-  text-decoration: none;
-  padding-left: 252px;
-}
