@@ -1,0 +1,6 @@
+#mapid {
+  height: 680px;
+}
+div.leaflet-popup-content{
+  color: black;
+}
