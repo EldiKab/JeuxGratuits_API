@@ -22,6 +22,10 @@ class JeuxCtrl {
       genres.push(jeux[i].genre);
     }
     let genresFiltres = genres.filter((x, i) => genres.indexOf(x) === i);
+    let optAll = document.createElement("option");
+    optAll.value="all";
+    optAll.innerHTML="all";
+    liste.appendChild(optAll);
     for (let i = 0; i < genresFiltres.length; i++) {
       let opt = document.createElement("option");
       opt.value = genresFiltres[i];
@@ -106,9 +110,28 @@ class JeuxCtrl {
     conteneur.appendChild(jeuDiv);
   }
   filtreJeu() {
-    let genre = $("#cmboxGenre option:selected").text();
-    let plateforme = $("#cmboxPlateforme option:selected").text();
-    http.getJeuxFiltre(genre, plateforme, (jeux) => {
+    let genreSelected = $("#cmboxGenre option:selected").text();
+    let genre=genreSelected.toLowerCase();
+    let genreSansEspace = genre.replace(" ", "-");
+    if(genreSansEspace=="card-game"){
+      genreSansEspace="card";
+    }
+    if(genreSansEspace.includes("arpg")){
+      genreSansEspace.replace("arpg", "action-rpg");
+    }
+    
+    let plateformeSelected = $("#cmboxPlateforme option:selected").text();
+    let plateforme = "";
+    if(plateformeSelected=="PC (Windows)"){
+      plateforme="pc";
+    }
+    if(plateformeSelected=="Web Browser"){
+      plateforme="browser"
+    }
+    if(plateformeSelected=="PC (Windows), Web Browser"){
+      plateforme="all";
+    }
+    http.getJeuxFiltre(genreSansEspace, plateforme, (jeux) => {
       this.afficherJeux(jeux);
     });
   }
@@ -121,16 +144,15 @@ class JeuxCtrl {
     } else {
       let id = "";
       http.getAllJeux((jeux) => {
+        let jeuxAvecNom=[];
         for (let i = 0; i < jeux.length; i++) {
-          if (jeux[i].title == titre) {
+          if (jeux[i].title.startsWith(titre)) {
             id = jeux[i].id;
-            console.log(id);
             http.getJeuAvecId(id, (jeu) => {
-              console.log(id);
-              console.log(jeu);
-              this.afficherJeu(jeu);
+              jeuxAvecNom.push(jeu);
+              this.afficherJeux(jeuxAvecNom);
             });
-            break;
+            
           }
         }
         if (id == "") {
