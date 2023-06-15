@@ -19,19 +19,17 @@ header div > *{
   margin: 10px;
   margin-bottom: 0px;
 }
+.jeu p{
+  padding-left: 10px;
+  padding-right: 10px;
+}
 #jeux{
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 50px;
 }
-.trInfosJeu{
+.genreEtPlat{
   display: flex;
   justify-content: space-between;
-}
-.genretd{
-  text-align: left;
-}
-.plateformetd{
-  text-align: right;
 }
  
